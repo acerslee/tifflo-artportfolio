@@ -1,7 +1,6 @@
-import '../styles/globals.css'
-// import SEO from '../components/seo'
-// import Navbar from '../components/navbar'
-// import Footer from '../components/footer'
+import SEO from '../components/SEO'
+import Navbar from '../components/Footer'
+import Footer from '../components/Footer'
 import { NextPage } from 'next'
 
 type AppProps<P = any> = {
@@ -12,10 +11,12 @@ type AppProps<P = any> = {
 
 const MyApp: NextPage<AppProps> = ({ Component, pageProps, router }) => {
   return (
-    // <SEO path = {router.asPath}/>
-    // <Navbar />
-    <Component {...pageProps} />
-    // <Footer />
+    <>
+      <SEO path = {router.asPath}/>
+      <Navbar />
+      <Component {...pageProps} />
+      <Footer />
+    </>
   )
 }
 
