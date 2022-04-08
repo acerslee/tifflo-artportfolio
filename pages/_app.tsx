@@ -28,7 +28,7 @@ const MyApp: NextPage<AppProps> = ({ Component, pageProps, router }) => {
       <GlobalStyle />
       <Navbar />
       <Component {...pageProps} />
-      <Footer />
+      {/* <Footer /> */}
     </>
   )
 }

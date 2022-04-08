@@ -103,10 +103,8 @@ const Nav = styled(Row)`
 `
 
 const RightNavItem = styled(Col)`
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding-right: 0;
+  align-self: center;
+  text-align: right;
 `
 
 export default Navbar

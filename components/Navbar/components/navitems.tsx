@@ -13,12 +13,11 @@ const NavMenu = styled.ul`
   background-color: white;
   @media (max-width: 1024px) {
     height: 100vh;
+    width: 100vw;
     display: none;
     position: fixed;
-    top: 7rem;
+    top: 8rem;
     width: 100%;
-    padding-left: 1.625rem;
-    left: 0rem;
   }
 `
 
@@ -32,17 +31,24 @@ const NavItem = styled.li`
 `
 
 const NavText = styled.span`
+  text-decoration: underline 0.15em rgba(0, 0, 0, 0);
   font-size: 1rem;
+  transition: text-decoration-color 400ms;
   &: hover {
-    color: orange;
+    color: #6929f2;
+    text-decoration-color: #5f25db;
     cursor: pointer;
+  }
+  @media (max-width: 1024px) {
+    font-size: 1.5rem;
   }
 `
 
 const InstagramLogo = styled(FaInstagram)`
   font-size: 2.5rem;
+  transition: color 400ms;
   &: hover {
-    color: orange;
+    color: #6929f2;
     cursor: pointer;
   }
 `
@@ -52,8 +58,8 @@ const NavItems: FC = () => {
   return (
     <NavMenu id="nav_menu">
       <NavItem className="nav_item">
-        <Link href="/artwork" passHref>
-          <NavText>Artwork</NavText>
+        <Link href="/artworks" passHref>
+          <NavText>Artworks</NavText>
         </Link>
       </NavItem>
       <NavItem className="nav_item">
