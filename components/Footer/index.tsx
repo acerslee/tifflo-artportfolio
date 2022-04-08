@@ -1,16 +1,16 @@
 import { FC } from 'react'
 import styled from 'styled-components'
 
+import PageContainer from '../../ui/PageContainer'
+
 const Footer: FC = () => {
   const currentYear =  new Date().getFullYear()
 
   return (
-    <FooterContainer>
+    <PageContainer>
       ©{currentYear} H.C. Tiffany Lo
-    </FooterContainer>
+    </PageContainer>
   )
 }
-
-const FooterContainer = styled.footer``
 
 export default Footer
