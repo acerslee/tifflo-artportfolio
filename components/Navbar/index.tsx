@@ -19,7 +19,6 @@ const Navbar: FC = () => {
   const [toggleHamburger, setToggleHamburger] = useState<boolean>(true)
 
   const isTabletSize = useMediaQuery('(max-width: 1024px)')
-  const isMobileSize = useMediaQuery('(max-width: 425px)')
 
   useEffect(() => {
     const element = document.getElementById('nav_menu')

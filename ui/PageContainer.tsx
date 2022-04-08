@@ -1,12 +1,24 @@
-import { FC } from 'react'
+import { FC, ReactNode } from 'react'
+
+import styled from 'styled-components'
 import Container from 'react-bootstrap/Container'
 
-const PageContainer: FC = ({ children }) => {
+type ContainerProps = {
+  children: ReactNode
+}
+
+const PageContainer: FC<ContainerProps> = ({ children }) => {
   return (
-    <Container fluid>
+    <Webpage fluid="md" sm={4} md={8} lg={12}>
       {children}
-    </Container>
+    </Webpage>
   )
 }
+
+const Webpage = styled(Container)`
+  @media (max-width: 1440px) {
+    max-width: 90%;
+  }
+`
 
 export default PageContainer

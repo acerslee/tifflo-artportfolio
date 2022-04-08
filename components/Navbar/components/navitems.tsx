@@ -78,7 +78,16 @@ const NavItems: FC = () => {
         </Link>
       </NavItem>
       <NavItem className="nav_item">
-        <InstagramLogo />
+        <a
+          href="https://www.instagram.com/hoi.dontmakesense/"
+          rel="noreferrer"
+          target="_blank"
+          style={{
+            color: '#000000'
+          }}
+        >
+          <InstagramLogo />
+        </a>
       </NavItem>
     </NavMenu>
   )
