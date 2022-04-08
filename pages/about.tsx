@@ -1,5 +1,4 @@
 import type { NextPage } from 'next'
-import styled from 'styled-components'
 import { client, ContentfulProps} from '../utils/contentful'
 
 export async function getStaticProps() {
@@ -13,16 +12,13 @@ export async function getStaticProps() {
   }
 }
 
-const ContactPage: NextPage<ContentfulProps> = ({ cvHeading }) => {
+
+const AboutPage: NextPage<ContentfulProps> = () => {
   return (
-    <section>
-      <EmailText>{cvHeading.email}</EmailText>
-    </section>
+    <article>
+
+    </article>
   )
 }
 
-const EmailText = styled.h1`
-
-`
-
-export default ContactPage
+export default AboutPage

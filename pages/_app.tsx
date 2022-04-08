@@ -3,6 +3,7 @@ import SEO from '../components/SEO'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { createGlobalStyle } from 'styled-components'
+import '../custom.scss'
 
 type AppProps<P = any> = {
   Component: P
@@ -14,7 +15,8 @@ const GlobalStyle = createGlobalStyle`
   body: {
     margin: 0;
     padding: 0;
-    background-color: orange;
+  }
+  * {
     font-family: Arial;
   }
 `
