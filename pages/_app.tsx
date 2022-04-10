@@ -19,6 +19,10 @@ const GlobalStyle = createGlobalStyle`
   * {
     font-family: Arial;
   }
+  #__next {
+    position: relative;
+    min-height: 100vh;
+  }
 `
 
 const MyApp: NextPage<AppProps> = ({ Component, pageProps, router }) => {
@@ -28,7 +32,7 @@ const MyApp: NextPage<AppProps> = ({ Component, pageProps, router }) => {
       <GlobalStyle />
       <Navbar />
       <Component {...pageProps} />
-      {/* <Footer /> */}
+      <Footer />
     </>
   )
 }

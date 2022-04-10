@@ -16,7 +16,8 @@ const PageContainer: FC<ContainerProps> = ({ children }) => {
 }
 
 const Webpage = styled(Container)`
-  padding-top: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 5rem;
   @media (max-width: 1440px) {
     max-width: 90%;
   }

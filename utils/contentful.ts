@@ -5,6 +5,7 @@ export type ContentfulProps<T = any> = {
   cvAward?: T
   cvEducation?: T
   cvExhibition?: T
+  about?: T
 }
 
 export const client = createClient({

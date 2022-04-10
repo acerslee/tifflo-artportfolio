@@ -9,7 +9,7 @@ const NavMenu = styled.ul`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  z-index: 1;
+  // z-index: 1;
   background-color: white;
   @media (max-width: 1024px) {
     height: 100vh;

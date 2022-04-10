@@ -1,4 +1,4 @@
-import type { NextPage } from 'next'
+import type { NextPage, GetStaticProps } from 'next'
 import { ReactNode } from 'react'
 import { client, ContentfulProps } from '../utils/contentful'
 

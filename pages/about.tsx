@@ -1,24 +1,39 @@
 import type { NextPage } from 'next'
 import { client, ContentfulProps} from '../utils/contentful'
 
-export async function getStaticProps() {
-  const headingRes = await client.getEntries({ content_type: 'navbar'})
+import styled from 'styled-components'
 
-  console.log(headingRes)
+import PageContainer from '../ui/PageContainer'
+
+export async function getStaticProps() {
+  const aboutRes = await client.getEntries({ content_type: 'about'})
+
   return {
     props: {
-      cvHeading: headingRes.items[0].fields
+      about: aboutRes.items[0].fields
     }
   }
 }
 
 
-const AboutPage: NextPage<ContentfulProps> = () => {
+const AboutPage: NextPage<ContentfulProps> = ({about}) => {
   return (
-    <article>
-
-    </article>
+    <PageContainer>
+      <AboutHeading>{about.heading}</AboutHeading>
+      <AboutText>{about.text}</AboutText>
+    </PageContainer>
   )
 }
+
+const AboutHeading = styled.div`
+  text-align: center;
+  font-size: 1.5rem;
+  text-decoration: underline;
+  margin-bottom: 2rem;
+`
+
+const AboutText = styled.article`
+  font-size: 1rem;
+`
 
 export default AboutPage

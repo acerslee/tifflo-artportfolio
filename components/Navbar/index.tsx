@@ -4,6 +4,7 @@ import Image from 'next/image'
 
 import hamburger from '../../public/hamburger.png'
 import vector from '../../public/vector.png'
+import logo from '../../public/logo.png'
 
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
@@ -51,9 +52,16 @@ const Navbar: FC = () => {
     <Header fluid="md" sm={4} md={8} lg={12}>
       <Nav>
         <Col xs={'auto'} lg={2}>
-          {/* TODO: Tiff will provide image */}
           <Link href={'/'} passHref>
-            <h1>Tiffany Lo</h1>
+            <>
+            {/* TODO: need to wait for tiff to send new image. too much whitespace in file */}
+              <Image
+                src={logo}
+                alt="Main logo for HCTiffLo"
+                height={200}
+                width={200}
+              />
+            </>
           </Link>
         </Col>
 
@@ -96,6 +104,7 @@ const Header = styled(Container)`
 const Nav = styled(Row)`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding-top: 3rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid #aeb6c6;
@@ -105,5 +114,12 @@ const RightNavItem = styled(Col)`
   align-self: center;
   text-align: right;
 `
+
+// const ImageContainer = styled.div`
+//   width: 100%;
+//   & hover: {
+//     cursor: pointer;
+//   }
+// `
 
 export default Navbar
