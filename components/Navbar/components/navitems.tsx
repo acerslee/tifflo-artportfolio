@@ -9,7 +9,6 @@ const NavMenu = styled.ul`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  // z-index: 1;
   background-color: white;
   @media (max-width: 1024px) {
     height: 100vh;
@@ -35,8 +34,8 @@ const NavText = styled.span`
   font-size: 1rem;
   transition: text-decoration-color 400ms;
   &: hover {
-    color: #6929f2;
-    text-decoration-color: #5f25db;
+    color: ${({ theme }) => theme.colors.purple};
+    text-decoration-color: ${({ theme }) => theme.colors.purple};
     cursor: pointer;
   }
   @media (max-width: 1024px) {
@@ -48,7 +47,7 @@ const InstagramLogo = styled(FaInstagram)`
   font-size: 2.5rem;
   transition: color 400ms;
   &: hover {
-    color: #6929f2;
+    color: ${({ theme }) => theme.colors.purple};
     cursor: pointer;
   }
 `

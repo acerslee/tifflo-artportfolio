@@ -15,7 +15,7 @@ const FooterContainer = styled.footer`
   position: absolute;
   bottom: 0;
   width: 100%;
-  background-color: #6929f2;
+  background-color: ${({ theme }) => theme.colors.purple};
   padding: 0.5rem 0;
 `
 

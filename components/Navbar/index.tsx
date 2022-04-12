@@ -53,15 +53,14 @@ const Navbar: FC = () => {
       <Nav>
         <Col xs={'auto'} lg={2}>
           <Link href={'/'} passHref>
-            <>
-            {/* TODO: need to wait for tiff to send new image. too much whitespace in file */}
+            <a>
               <Image
                 src={logo}
                 alt="Main logo for HCTiffLo"
-                height={200}
-                width={200}
+                height={80}
+                width={225}
               />
-            </>
+            </a>
           </Link>
         </Col>
 
@@ -114,12 +113,5 @@ const RightNavItem = styled(Col)`
   align-self: center;
   text-align: right;
 `
-
-// const ImageContainer = styled.div`
-//   width: 100%;
-//   & hover: {
-//     cursor: pointer;
-//   }
-// `
 
 export default Navbar
