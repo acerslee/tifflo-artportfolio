@@ -20,6 +20,7 @@ const Navbar: FC = () => {
   const [toggleHamburger, setToggleHamburger] = useState<boolean>(true)
 
   const isTabletSize = useMediaQuery('(max-width: 1024px)')
+  const isMobileSize = useMediaQuery('(max-width: 711px)')
 
   useEffect(() => {
     const element = document.getElementById('nav_menu')
@@ -48,6 +49,17 @@ const Navbar: FC = () => {
     item.forEach((n) => n.addEventListener('click', closeMenu))
   }
 
+  let heightSize: number = 80
+  let widthSize: number = 225
+
+  if (isMobileSize) {
+    heightSize = 40
+    widthSize = 110
+  } else if (isTabletSize) {
+    heightSize = 60
+    widthSize = 170
+  }
+
   return (
     <Header fluid="md" sm={4} md={8} lg={12}>
       <Nav>
@@ -57,8 +69,8 @@ const Navbar: FC = () => {
               <Image
                 src={logo}
                 alt="Main logo for HCTiffLo"
-                height={80}
-                width={225}
+                height={heightSize}
+                width={widthSize}
               />
             </a>
           </Link>

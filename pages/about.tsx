@@ -20,20 +20,29 @@ const AboutPage: NextPage<ContentfulProps> = ({about}) => {
   return (
     <PageContainer>
       <AboutHeading>{about.heading}</AboutHeading>
-      <AboutText>{about.text}</AboutText>
+      <ContentText>{about.text}</ContentText>
+      <Divider />
+      <ContentText>{about.chineseText}</ContentText>
     </PageContainer>
   )
 }
 
 const AboutHeading = styled.div`
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 2rem;
   text-decoration: underline;
   margin-bottom: 2rem;
 `
 
-const AboutText = styled.article`
-  font-size: 1rem;
+const ContentText = styled.div`
+  font-size: 1.2rem;
+  @media (max-width: 1024px) {
+    font-size: 1rem;
+  }
+`
+
+const Divider = styled.div`
+  margin: 2rem 0;
 `
 
 export default AboutPage

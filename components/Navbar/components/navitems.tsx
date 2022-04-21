@@ -57,11 +57,6 @@ const NavItems: FC = () => {
   return (
     <NavMenu id="nav_menu">
       <NavItem className="nav_item">
-        <Link href="/artworks" passHref>
-          <NavText>Artworks</NavText>
-        </Link>
-      </NavItem>
-      <NavItem className="nav_item">
         <Link href="/about" passHref>
           <NavText>About</NavText>
         </Link>
