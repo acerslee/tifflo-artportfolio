@@ -15,7 +15,6 @@ export async function getStaticProps() {
   }
 }
 
-
 const AboutPage: NextPage<ContentfulProps> = ({about}) => {
   return (
     <PageContainer>

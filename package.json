@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "add sharp && next start",
     "lint": "next lint"
   },
   "dependencies": {
@@ -17,6 +17,7 @@
     "react": "18.0.0",
     "react-bootstrap": "^2.2.2",
     "react-dom": "18.0.0",
+    "sharp": "^0.30.4",
     "styled-components": "^5.3.5"
   },
   "devDependencies": {

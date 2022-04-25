@@ -12,11 +12,11 @@ const NavMenu = styled.ul`
   background-color: white;
   @media (max-width: 1024px) {
     height: 100vh;
-    width: 100vw;
     display: none;
     position: fixed;
-    top: 8rem;
-    width: 100%;
+    top: 6rem;
+    left: 0rem;
+    z-index: 3;
   }
 `
 
@@ -24,7 +24,6 @@ const NavItem = styled.li`
   list-style: none;
   margin-left: 3em;
   @media (max-width: 1024px) {
-    margin-left: 0;
     padding-top: 3em;
   }
 `
