@@ -7,7 +7,7 @@ import PageContainer from '../ui/PageContainer'
 import Gallery from 'react-grid-gallery'
 
 export async function getStaticProps() {
-  const imagesRes = await client.getEntries({ content_type: 'rectangularImages'})
+  const imagesRes = await client.getEntries({ content_type: 'rectangularImages' })
 
   return {
     props: {

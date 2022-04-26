@@ -63,7 +63,7 @@ const Navbar: FC = () => {
   return (
     <Header fluid="md" sm={4} md={8} lg={12}>
       <Nav>
-        <Col xs={'auto'} lg={2}>
+        <Col xs={'auto'} lg={2} className="nav_item">
           <Link href={'/'} passHref>
             <a>
               <Image
