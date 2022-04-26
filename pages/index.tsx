@@ -40,7 +40,7 @@ const Home: NextPage<ContentfulProps> = ({ images }) => {
 
   return (
     <PageContainer>
-      <Gallery images={renderImages} enableLightbox={false}/>
+      <Gallery images={renderImages} backdropClosesModal={true} />
     </PageContainer>
     )
 }
