@@ -8,9 +8,10 @@ interface Props {
 const SEO: FC<Props> = path => {
   const dynamicTitle = (route: string): string => {
     if (route === '/') return 'Artist | HC Tiffany Lo'
-    if (route === '/cv') return 'CV'
+    if (route === '/about') return 'About | HC Tiffany Lo'
+    if (route === '/cv') return 'CV | HC Tiffany Lo'
 
-    return 'Contact'
+    return 'Contact | HC Tiffany Lo'
   }
 
   return (
