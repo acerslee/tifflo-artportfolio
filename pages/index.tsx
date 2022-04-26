@@ -1,14 +1,10 @@
 import type { NextPage } from 'next'
-import Image from 'next/image'
-import { ReactNode } from 'react'
 
 import { client, ContentfulProps} from '../utils/contentful'
 
 import PageContainer from '../ui/PageContainer'
-import styled from 'styled-components'
 
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
+import Gallery from 'react-grid-gallery'
 
 export async function getStaticProps() {
   const imagesRes = await client.getEntries({ content_type: 'rectangularImages'})
@@ -20,47 +16,33 @@ export async function getStaticProps() {
   }
 }
 
+type ContentfulImageTypes = {
+  src: string
+  thumbnail: string
+  thumbnailWidth: number
+  thumbnailHeight: number
+  caption: string
+}
+
 const Home: NextPage<ContentfulProps> = ({ images }) => {
 
-  const renderImages = (): ReactNode => {
-    return(
-      images.map((image: any) => {
-        return(
-          <ImageContainer
-            key={image.fields.image.sys.id}
-            sm={image.fields.isRectangular ? 4 : 2}
-          >
-             <Image
-              src={`https:${image.fields.image.fields.file.url}`}
-              layout="fill"
-              objectFit='contain'
-              alt={image.fields.image.fields.title}
-            />
-          </ImageContainer>
-        )
-      })
+  const renderImages = images.map((image: any): ContentfulImageTypes => {
+    return (
+      {
+        src: `https:${image.fields.image.fields.file.url}`,
+        thumbnail: `https:${image.fields.image.fields.file.url}`,
+        thumbnailWidth: image.fields.image.fields.file.details.image.width,
+        thumbnailHeight: image.fields.image.fields.file.details.image.height,
+        caption: image.fields.image.fields.title
+      }
     )
-  }
+  })
 
   return (
     <PageContainer>
-      <Row xs={'auto'}>
-        {renderImages()}
-      </Row>
+      <Gallery images={renderImages} enableLightbox={false}/>
     </PageContainer>
     )
 }
-
-const ImageContainer = styled(Col)`
-  position: relative;
-  height: 255px;
-  margin: 0 1rem;
-  @media (max-width: 1024px) {
-    height: 150px;
-  }
-  @media (max-width: 711px) {
-    height: 100px;
-  }
-`
 
 export default Home
