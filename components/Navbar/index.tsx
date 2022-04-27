@@ -49,27 +49,18 @@ const Navbar: FC = () => {
     item.forEach((n) => n.addEventListener('click', closeMenu))
   }
 
-  let heightSize: number = 80
-  let widthSize: number = 225
-
-  if (isMobileSize) {
-    heightSize = 40
-    widthSize = 110
-  } else if (isTabletSize) {
-    heightSize = 60
-    widthSize = 170
-  }
-
   return (
     <Header fluid="md" sm={4} md={8} lg={12}>
       <Nav>
         <Col xs={'auto'} lg={2}>
-          <Image
-            src={logo}
-            alt="Main logo for HCTiffLo"
-            height={heightSize}
-            width={widthSize}
-          />
+          <ImageContainer>
+            <Image
+              src={logo}
+              alt="Main logo for HCTiffLo"
+              layout='fill'
+              objectFit='contain'
+            />
+          </ImageContainer>
         </Col>
 
         {isTabletSize ? (
@@ -115,6 +106,20 @@ const Nav = styled(Row)`
   padding-top: 3rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid #aeb6c6;
+`
+
+const ImageContainer = styled.div`
+  position: relative;
+  height: 80px;
+  width: 225px
+  @media (max-width: 1024px) {
+    height: 60px;
+    width: 170px
+  }
+  @media (max-width: 711px) {
+    height: 40px;
+    width: 110px
+  }
 `
 
 const RightNavItem = styled(Col)`

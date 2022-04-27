@@ -20,7 +20,6 @@ const FooterContainer = styled.footer`
     bottom: 0;
   }
   @media (max-width: 711px) {
-    position: none;
     margin-top: 0.5rem;
   }
 `
