@@ -40,6 +40,7 @@ const MyApp: NextPage<AppProps> = ({ Component, pageProps, router }) => {
         <Navbar />
         <Component {...pageProps} />
         <Footer />
+        {/* {router.asPath !== '/' && <Footer />} */}
       </ThemeProvider>
     </>
   )

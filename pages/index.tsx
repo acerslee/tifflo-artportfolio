@@ -3,6 +3,8 @@ import type { NextPage } from 'next'
 import { client, ContentfulProps} from '../utils/contentful'
 
 import PageContainer from '../ui/PageContainer'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 import Gallery from 'react-grid-gallery'
 
@@ -40,7 +42,11 @@ const Home: NextPage<ContentfulProps> = ({ images }) => {
 
   return (
     <PageContainer>
-      <Gallery images={renderImages} backdropClosesModal={true} />
+      <Row>
+        <Col>
+          <Gallery images={renderImages} backdropClosesModal={true} />
+        </Col>
+      </Row>
     </PageContainer>
     )
 }

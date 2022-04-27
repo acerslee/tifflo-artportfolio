@@ -63,17 +63,13 @@ const Navbar: FC = () => {
   return (
     <Header fluid="md" sm={4} md={8} lg={12}>
       <Nav>
-        <Col xs={'auto'} lg={2} className="nav_item">
-          <Link href={'/'} passHref>
-            <a>
-              <Image
-                src={logo}
-                alt="Main logo for HCTiffLo"
-                height={heightSize}
-                width={widthSize}
-              />
-            </a>
-          </Link>
+        <Col xs={'auto'} lg={2}>
+          <Image
+            src={logo}
+            alt="Main logo for HCTiffLo"
+            height={heightSize}
+            width={widthSize}
+          />
         </Col>
 
         {isTabletSize ? (
