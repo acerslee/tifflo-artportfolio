@@ -19,7 +19,10 @@ const Webpage = styled(Container)`
   padding-top: 2rem;
   padding-bottom: 5rem;
   @media (max-width: 1024px) {
-    max-width: 95%;
+    width: 95%;
+  }
+  @media (max-width: 711px) {
+    width: 100%;
   }
 `
 

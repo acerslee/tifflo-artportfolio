@@ -111,7 +111,7 @@ const Nav = styled(Row)`
 const ImageContainer = styled.div`
   position: relative;
   height: 80px;
-  width: 225px
+  width: 225px;
   @media (max-width: 1024px) {
     height: 60px;
     width: 170px
