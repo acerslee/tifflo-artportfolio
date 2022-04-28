@@ -13,7 +13,7 @@ const Footer: FC = () => {
 
 const FooterContainer = styled.footer`
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.purple};
+  background-color: ${({ theme }) => theme.colors.lightOrange};
   padding: 0.5rem 0;
   @media (min-width: 1025px) {
     position: absolute;
@@ -28,7 +28,6 @@ const CopyrightText = styled.div`
   font-size: 0.8rem;
   text-align: center;
   padding: 1rem 0;
-  color: #ffffff;
 `
 
 export default Footer

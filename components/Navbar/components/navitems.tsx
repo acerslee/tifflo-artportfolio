@@ -33,8 +33,8 @@ const NavText = styled.span`
   font-size: 1rem;
   transition: text-decoration-color 400ms;
   &: hover {
-    color: ${({ theme }) => theme.colors.purple};
-    text-decoration-color: ${({ theme }) => theme.colors.purple};
+    color: ${({ theme }) => theme.colors.lightOrange};
+    text-decoration-color: ${({ theme }) => theme.colors.lightOrange};
     cursor: pointer;
   }
   @media (max-width: 1024px) {
@@ -46,7 +46,7 @@ const InstagramLogo = styled(FaInstagram)`
   font-size: 2.5rem;
   transition: color 400ms;
   &: hover {
-    color: ${({ theme }) => theme.colors.purple};
+    color: ${({ theme }) => theme.colors.lightOrange};
     cursor: pointer;
   }
 `

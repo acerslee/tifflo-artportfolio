@@ -9,7 +9,7 @@ import Col from 'react-bootstrap/Col'
 import Gallery from 'react-grid-gallery'
 
 export async function getStaticProps() {
-  const imagesRes = await client.getEntries({ content_type: 'rectangularImages' })
+  const imagesRes = await client.getEntries({ content_type: 'rectangularImages', order: 'fields.title' })
 
   return {
     props: {
@@ -27,7 +27,6 @@ type ContentfulImageTypes = {
 }
 
 const Home: NextPage<ContentfulProps> = ({ images }) => {
-
   const renderImages = images.map((image: any): ContentfulImageTypes => {
     return (
       {
@@ -35,7 +34,8 @@ const Home: NextPage<ContentfulProps> = ({ images }) => {
         thumbnail: `https:${image.fields.image.fields.file.url}`,
         thumbnailWidth: image.fields.image.fields.file.details.image.width,
         thumbnailHeight: image.fields.image.fields.file.details.image.height,
-        caption: image.fields.image.fields.title
+        caption:
+          `${image.fields.title}, ${image.fields.mediums} - (${image.fields.photoCredits})`
       }
     )
   })

@@ -27,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
 
 const theme = {
   colors: {
-    purple: '#6929f2',
+    lightOrange: '#FFD276',
   },
 }
 
