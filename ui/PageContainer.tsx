@@ -9,7 +9,7 @@ type ContainerProps = {
 
 const PageContainer: FC<ContainerProps> = ({ children }) => {
   return (
-    <Webpage sm={4} md={8} lg={12}>
+    <Webpage sm={4} md={8} lg={10} xl={12}>
       {children}
     </Webpage>
   )
@@ -18,11 +18,8 @@ const PageContainer: FC<ContainerProps> = ({ children }) => {
 const Webpage = styled(Container)`
   padding-top: 2rem;
   padding-bottom: 5rem;
-  @media (max-width: 1024px) {
-    width: 95%;
-  }
-  @media (max-width: 711px) {
-    width: 100%;
+  @media(max-width: 1440px) {
+    max-width: 90%;
   }
 `
 

@@ -5,6 +5,7 @@ import PageContainer from '../ui/PageContainer'
 
 import styled from 'styled-components'
 import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 export async function getStaticProps() {
   const headingRes = await client.getEntries({ content_type: 'navbar'})
@@ -20,7 +21,9 @@ const ContactPage: NextPage<ContentfulProps> = ({ cvHeading }) => {
   return (
     <PageContainer>
       <Row>
-        <EmailText>{cvHeading.email}</EmailText>
+        <Col>
+          <EmailText>{cvHeading.email}</EmailText>
+        </Col>
       </Row>
     </PageContainer>
   )

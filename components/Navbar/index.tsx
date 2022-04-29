@@ -77,7 +77,7 @@ const Navbar: FC = () => {
             <Image
               src={toggleHamburger ? hamburger : vector}
               alt="Higi navbar icon to show or hide the nav items when clicked"
-              width={toggleHamburger ? 21 : 16.33}
+              width={toggleHamburger ? 21 : 15.33}
               height={toggleHamburger ? 14 : 16.33}
               onClick={() => toggleNavMenu()}
             />
