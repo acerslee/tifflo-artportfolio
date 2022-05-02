@@ -31,7 +31,6 @@ const NavItem = styled.li`
 const NavText = styled.span`
   text-decoration: underline 0.15em rgba(0, 0, 0, 0);
   font-size: 1rem;
-  transition: text-decoration-color 400ms;
   &: hover {
     color: ${({ theme }) => theme.colors.lightOrange};
     text-decoration-color: ${({ theme }) => theme.colors.lightOrange};
@@ -44,7 +43,7 @@ const NavText = styled.span`
 
 const InstagramLogo = styled(FaInstagram)`
   font-size: 2.5rem;
-  transition: color 400ms;
+  transition: color 500ms;
   &: hover {
     color: ${({ theme }) => theme.colors.lightOrange};
     cursor: pointer;

@@ -27,7 +27,7 @@ const FooterContainer = styled.footer`
 const CopyrightText = styled.div`
   font-size: 0.8rem;
   text-align: center;
-  padding: 1rem 0;
+  padding: 0.8rem 0;
 `
 
 export default Footer
