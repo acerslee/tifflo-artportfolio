@@ -9,12 +9,16 @@ import Col from 'react-bootstrap/Col'
 import Gallery from 'react-grid-gallery'
 
 export async function getStaticProps() {
-  const imagesRes = await client.getEntries({ content_type: 'rectangularImages', order: 'fields.title' })
+  try {
+    const imagesRes = await client.getEntries({ content_type: 'rectangularImages', order: 'fields.title' })
 
-  return {
-    props: {
-      images: imagesRes.items
+    return {
+      props: {
+        images: imagesRes.items
+      }
     }
+  } catch(e) {
+    console.warn(e)
   }
 }
 
