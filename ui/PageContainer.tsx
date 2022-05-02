@@ -21,6 +21,9 @@ const Webpage = styled(Container)`
   @media(max-width: 1440px) {
     max-width: 90%;
   }
+  @media(max-width: 1024px) {
+    flex: 1;
+  }
 `
 
 export default PageContainer

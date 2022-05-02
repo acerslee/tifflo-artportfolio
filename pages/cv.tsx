@@ -3,22 +3,29 @@ import { ReactNode } from 'react'
 import { client, ContentfulProps } from '../utils/contentful'
 
 import styled from 'styled-components'
-import PageContainer from '../ui/PageContainer'
+import { PageContainer, HeadingText, BodyText } from '../ui'
 import Row from 'react-bootstrap/Row'
+import { useMediaQuery } from '../hooks/useMediaQuery'
 
 export async function getStaticProps() {
-  const headingRes = await client.getEntries({ content_type: 'navbar'})
-  const awardRes = await client.getEntries({ content_type: 'cvAward' })
-  const educationRes = await client.getEntries({ content_type: 'cvEducation', order: 'sys.createdAt' })
-  const exhibitionRes = await client.getEntries({ content_type: 'cvExhibition', order: 'sys.createdAt' })
+  try {
+    const responses = await Promise.all([
+      client.getEntries({ content_type: 'navbar' }),
+      client.getEntries({ content_type: 'cvAward' }),
+      client.getEntries({ content_type: 'cvEducation', order: 'sys.createdAt' }),
+      client.getEntries({ content_type: 'cvExhibition', order: 'sys.createdAt' })
+    ])
 
-  return {
-    props: {
-      cvHeading: headingRes.items[0].fields,
-      cvAward: awardRes.items,
-      cvEducation: educationRes.items,
-      cvExhibition: exhibitionRes.items,
+    return {
+      props: {
+        cvHeading: responses[0].items[0].fields,
+        cvAward: responses[1].items,
+        cvEducation: responses[2].items,
+        cvExhibition: responses[3].items,
+      }
     }
+  } catch(e) {
+    console.warn(e)
   }
 }
 
@@ -29,11 +36,14 @@ const CVPage: NextPage<ContentfulProps> = ({
   cvExhibition,
 }) => {
 
+  const isTabletSize = useMediaQuery('(max-width: 1024px)')
+  const isMobileSize = useMediaQuery('(max-width: 711px)')
+
   const renderHeadingSection = (): ReactNode => {
     return(
       <CVSection>
-        <TopText>{cvHeading.name}</TopText>
-        <Entry>{cvHeading.email}</Entry>
+        <HeadingText size={isTabletSize ? 'medium' :'large'}>{cvHeading.name}</HeadingText>
+        <BodyText size={isMobileSize ? 'small' : 'medium'}>{cvHeading.email}</BodyText>
       </CVSection>
     )
   }
@@ -41,9 +51,14 @@ const CVPage: NextPage<ContentfulProps> = ({
   const renderEducationSection = (): ReactNode => {
     return(
       <CVSection>
-        <TopText>Education</TopText>
-        {cvEducation.map((entry: any, i: number) => (
-          <Entry key = {i}>{entry.fields.education}</Entry>
+        <HeadingText size={isTabletSize ? 'medium' :'large'}>Education</HeadingText>
+        {cvEducation.map((item: any, i: number) => (
+          <BodyText
+            key = {i}
+            size={isMobileSize ? 'small' : 'medium'}
+          >
+            {item.fields.education}
+          </BodyText>
           ))}
       </CVSection>
     )
@@ -52,9 +67,14 @@ const CVPage: NextPage<ContentfulProps> = ({
   const renderExhibitionSection = (): ReactNode => {
     return(
       <CVSection>
-        <TopText>Selected Group Exhibition</TopText>
-        {cvExhibition.map((entry: any, i: number) => (
-          <Entry key = {i}>{entry.fields.data}</Entry>
+        <HeadingText size={isTabletSize ? 'medium' :'large'}>Selected Group Exhibition</HeadingText>
+        {cvExhibition.map((item: any, i: number) => (
+          <BodyText
+            key={i}
+            size={isMobileSize ? 'small' : 'medium'}
+          >
+            {item.fields.data}
+          </BodyText>
           ))}
       </CVSection>
     )
@@ -63,9 +83,14 @@ const CVPage: NextPage<ContentfulProps> = ({
   const renderAwardSection = (): ReactNode => {
     return(
       <CVSection>
-        <TopText>Awards</TopText>
-        {cvAward.map((entry: any, i: number) => (
-          <Entry key = {i}>{entry.fields.data}</Entry>
+        <HeadingText size={isTabletSize ? 'medium' :'large'}>Awards</HeadingText>
+        {cvAward.map((item: any, i: number) => (
+          <BodyText
+            key={i}
+            size={isMobileSize ? 'small' : 'medium'}
+          >
+            {item.fields.data}
+          </BodyText>
         ))}
       </CVSection>
     )
@@ -91,14 +116,6 @@ const CVPage: NextPage<ContentfulProps> = ({
 
 const CVSection = styled.div`
   margin: 1rem 0;
-`
-
-const TopText = styled.div`
-  font-size: 1.5rem;
-`
-
-const Entry = styled.p`
-  font-size: 1rem;
 `
 
 export default CVPage

@@ -1,5 +1,4 @@
 import { useState, useEffect, FC } from 'react'
-import Link from 'next/link'
 import Image from 'next/image'
 
 import hamburger from '../../public/hamburger.png'
@@ -20,7 +19,6 @@ const Navbar: FC = () => {
   const [toggleHamburger, setToggleHamburger] = useState<boolean>(true)
 
   const isTabletSize = useMediaQuery('(max-width: 1024px)')
-  const isMobileSize = useMediaQuery('(max-width: 711px)')
 
   useEffect(() => {
     const element = document.getElementById('nav_menu')
@@ -59,6 +57,7 @@ const Navbar: FC = () => {
               alt="Main logo for HCTiffLo"
               layout='fill'
               objectFit='contain'
+              priority
             />
           </ImageContainer>
         </Col>

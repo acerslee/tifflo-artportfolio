@@ -22,6 +22,11 @@ const GlobalStyle = createGlobalStyle`
   #__next {
     position: relative;
     min-height: 100vh;
+    @media (max-width: 1024px) {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
   }
 `
 

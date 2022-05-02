@@ -3,42 +3,41 @@ import { client, ContentfulProps} from '../utils/contentful'
 
 import styled from 'styled-components'
 
-import PageContainer from '../ui/PageContainer'
+import { useMediaQuery } from '../hooks/useMediaQuery'
+
+import { PageContainer, HeadingText, BodyText } from '../ui'
 
 export async function getStaticProps() {
-  const aboutRes = await client.getEntries({ content_type: 'about'})
+  try {
+    const aboutRes = await client.getEntries({ content_type: 'about'})
 
-  return {
-    props: {
-      about: aboutRes.items[0].fields
+    return {
+      props: {
+        about: aboutRes.items[0].fields
+      }
     }
+  } catch(e) {
+    console.warn(e)
   }
 }
 
 const AboutPage: NextPage<ContentfulProps> = ({about}) => {
+  const isTabletSize = useMediaQuery('(max-width: 1024px)')
+
   return (
     <PageContainer>
-      <AboutHeading>{about.heading}</AboutHeading>
-      <ContentText>{about.text}</ContentText>
+      <HeadingText
+        align='center'
+        size={isTabletSize ? 'medium' : 'large'}
+      >
+        {about.heading}
+      </HeadingText>
+      <BodyText size={'medium'}>{about.text}</BodyText>
       <Divider />
-      <ContentText>{about.chineseText}</ContentText>
+      <BodyText size={'medium'}>{about.chineseText}</BodyText>
     </PageContainer>
   )
 }
-
-const AboutHeading = styled.div`
-  text-align: center;
-  font-size: 2rem;
-  text-decoration: underline;
-  margin-bottom: 2rem;
-`
-
-const ContentText = styled.div`
-  font-size: 1.2rem;
-  @media (max-width: 1024px) {
-    font-size: 1rem;
-  }
-`
 
 const Divider = styled.div`
   margin: 2rem 0;
