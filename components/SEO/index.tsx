@@ -20,7 +20,7 @@ const SEO: FC<Props> = path => {
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       <meta
         name="description"
-        content="See your favorite shoes in this database for the sneak enthusiasts!"
+        content="Online art portfolio made for Hoi Ching Tiffany Lo."
       ></meta>
       <meta charSet="UTF-8"></meta>
       <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
